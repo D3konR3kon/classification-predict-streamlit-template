@@ -41,16 +41,16 @@ def main():
 
 	# Creates a main title and subheader on your page -
 	# these are static across all pages
-	st.title("Tweet Classifer")
+	st.title("Nexus Analytix-Tweet Classifer")
 	st.subheader("Climate change tweet classification")
 
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
-	options = ["Prediction", "Information"]
+	options = ["Home","Prediction", "Company Information" ]
 	selection = st.sidebar.selectbox("Choose Option", options)
 
 	# Building out the "Information" page
-	if selection == "Information":
+	if selection == "Company Information":
 		st.info("General Information")
 		# You can read a markdown file from supporting resources folder
 		st.markdown("Some information here")
@@ -59,18 +59,31 @@ def main():
 		if st.checkbox('Show raw data'): # data is hidden if box is unchecked
 			st.write(raw[['sentiment', 'message']]) # will write the df to the page
 
+		st.subheader("Company contact details")
+		if st.checkbox('Show company contact details'): # data is hidden if box is unchecked
+				st.image("resources/imgs/contact.jpeg") # will write the df to the page
+
+	# Building out the Home page
+	if selection == "Home":
+		st.info("Candidates Profile")
+		st.image("resources/imgs/NEXUS.jpeg")
+
 	# Building out the predication page
 	if selection == "Prediction":
 		st.info("Prediction with ML Models")
 		# Creating a text box for user input
 		tweet_text = st.text_area("Enter Text","Type Here")
+	
+	
 
 		if st.button("Classify"):
+			options = ["Logistic reg","linear" ]
 			# Transforming user input with vectorizer
 			vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
 			predictor = joblib.load(open(os.path.join("resources/Logistic_regression.pkl"),"rb"))
+			predictor = joblib.load(open(os.path.join("resources/LinearSVC.pkl"),"lsvc"))
 			prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
