@@ -22,8 +22,10 @@
 
 """
 # Streamlit dependencies
+from st_on_hover_tabs import on_hover_tabs
 import streamlit as st
 import joblib,os
+
 
 # Data dependencies
 import pandas as pd
