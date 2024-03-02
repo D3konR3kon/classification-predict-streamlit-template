@@ -92,7 +92,7 @@ def main():
         )
             st.markdown(
     """
-    <div style='background-color:#f0f0f0; padding:10px; border-radius:5px;'>
+    <div style='background-color:#d0d0d0; padding:10px; border-radius:5px;'>
         <h2 style='text-align:center;'>🎈 Interactive charts coming in v1.1.0!</h2>
     </div>
     """,
@@ -252,6 +252,10 @@ div[data-testid ="stImage"] > img:hover {
 
             with tab1:
                 st.header("Logistic Regression")
+                with st.container():
+                     st.write("""Even though the word “regression” is in the name, logistic regression is used for binary classification problems (those where the data has only two classes). Logistic regression is known as a simpler classification technique and is often used as a starting point to establish a baseline before moving to more complex model types.
+
+Logistic regression uses a linear combination of the predictor variables to estimate the probability of the outcome being 0 or 1. This is why the word “regression” is in the name. Because the probability is calculated as a linear combination of the predictor variables, logistic regression models are relatively straightforward to interpret.""")
                 # Creating a text box for user input
                 tweet_text4 = st.text_area("Enter Text","Type Here")
                 l_texet = pd.Series(tweet_text4)
@@ -274,7 +278,28 @@ div[data-testid ="stImage"] > img:hover {
 
             with tab2:
                 st.header("Random Forest")  
+                with st.container():
+                    st.write("""
 
+What it is:
+
+A reliable method that combines multiple decision trees (called an ensemble).
+More commonly used for classification tasks but can also be used for regression.
+How it works:
+
+Builds individual trees using bagging (creating multiple training datasets by sampling data with replacement).
+Splits data points using fewer features.
+This creates a diverse forest of uncorrelated trees with reduced variance.
+Benefits:
+
+Robust to changes in data and maintains accuracy on new data.
+Drawbacks:
+
+Doesn't work well with datasets containing many outliers (data points significantly different from the general trend). This needs to be addressed before using the model.
+Applications:
+
+Used in various fields like finance, retail, aeronautics, and more.
+""")
                 
 
                 # Creating a text box for user input
@@ -297,8 +322,13 @@ div[data-testid ="stImage"] > img:hover {
                     st.success("Text Categorized as: {}".format(prediction))  
 
             with tab3:
-                st.header("K-Nearest Nabour")
+                st.header("K-Nearest Neighbour")
+                with st.container():
+                     st.write("""
+                    The K-Nearest Neighbors (KNN) algorithm is a simple and effective method for classifying data points. It works by finding the closest points (k neighbors) in a training dataset to a new data point and assigning the majority class (for classification) or averaging the values (for regression) of those neighbors to the new point.
 
+While KNN is fast to train, it can be slow for predictions and require significant storage space as it stores all the training data. Additionally, it can be sensitive to irrelevant features, requiring careful consideration when choosing this method.
+""")
                 # Creating a text box for user input
                 tweet_text4 = st.text_area("Enter Text","Type Here", key=3)
                 l_texet = pd.Series(tweet_text4)
@@ -321,7 +351,12 @@ div[data-testid ="stImage"] > img:hover {
 
             with tab4:
                 st.header('LinearSVC')
+                with st.container():
+                     st.write("""
+                    Logistic Regression uses the probability of a data point to belonging to a certain class to classify each datapoint to it's best estimated class
 
+Logistic regression has been rated as the best performing model for linearly separable data especially if it's predicting binary data(Yes & NO or 1 & 0), and performs better when there's no class imbalance. 
+""")
                 # Creating a text box for user input
                 tweet_text4 = st.text_area("Enter Text","Type Here", key=5)
                 l_texet = pd.Series(tweet_text4)
