@@ -289,7 +289,7 @@ Logistic regression uses a linear combination of the predictor variables to esti
                     
                     # Load your .pkl file with the model of your choice + make predictions
                     # Try loading in multiple models to give the user a choice
-                    predictor = joblib.load(open(os.path.join("resources/lr_model.pkl"),"rb"))
+                    predictor = joblib.load(open(os.path.join("models/finalized_model_lr.pkl"),"rb"))
                     prediction = predictor.predict(l_texet)
 
                     # When model has successfully run, will print prediction
@@ -335,7 +335,7 @@ Used in various fields like finance, retail, aeronautics, and more.
                     
                     # Load your .pkl file with the model of your choice + make predictions
                     # Try loading in multiple models to give the user a choice
-                    predictor = joblib.load(open(os.path.join("resources/rf_model.pkl"),"rb"))
+                    predictor = joblib.load(open(os.path.join("models/finalized_model_rf.pkl"),"rb"))
                     prediction = predictor.predict(l_texet)
 
                     # When model has successfully run, will print prediction
@@ -362,7 +362,7 @@ While KNN is fast to train, it can be slow for predictions and require significa
                     
                     # Load your .pkl file with the model of your choice + make predictions
                     # Try loading in multiple models to give the user a choice
-                    predictor = joblib.load(open(os.path.join("resources/knn_model.pkl"),"rb"))
+                    predictor = joblib.load(open(os.path.join("models/finalized_model_kn.pkl"),"rb"))
                     prediction = predictor.predict(l_texet)
 
                     # When model has successfully run, will print prediction
@@ -390,7 +390,7 @@ Logistic regression has been rated as the best performing model for linearly sep
                     
                     # Load your .pkl file with the model of your choice + make predictions
                     # Try loading in multiple models to give the user a choice
-                    predictor = joblib.load(open(os.path.join("resources/lsvc_op_model.pkl"),"rb"))
+                    predictor = joblib.load(open(os.path.join("models/finalized_model_lsvc.pkl"),"rb"))
                     prediction = predictor.predict(l_texet)
 
                     # When model has successfully run, will print prediction
