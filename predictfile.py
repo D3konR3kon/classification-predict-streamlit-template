@@ -13,8 +13,43 @@ import pandas as pd
 df = pd.read_csv('./data/train.csv')
 df_test = pd.read_csv('./data/test_with_no_labels.csv')
 
-X = df['message']
-y = df['sentiment']
+def carbonCopy(df):
+    
+    """
+    This function creates a copy of the original train data and 
+    renames the classes, converting them from numbers to words
+    
+    Input: 
+    df: original dataframe
+        datatype: dataframe
+    
+    Output:
+    df: modified dataframe
+        datatype: dataframe 
+        
+    """
+    sentiment = df['sentiment']
+    word_sentiment = []
+
+    for i in sentiment :
+        if i == 1 :
+            word_sentiment.append('Pro')
+        elif i == 0 :
+            word_sentiment.append('Neutral')
+        elif i == -1 :
+            word_sentiment.append('Anti')
+        else :
+            word_sentiment.append('News')
+
+    df['sentiment'] = word_sentiment
+        
+    return df
+
+train_df = carbonCopy(df)
+
+X = train_df['message']
+y = train_df['sentiment']
+
 
 # Split the train data to create validation dataset
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.25, random_state=42)

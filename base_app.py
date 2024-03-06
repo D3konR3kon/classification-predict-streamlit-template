@@ -390,7 +390,7 @@ Logistic regression has been rated as the best performing model for linearly sep
                     
                     # Load your .pkl file with the model of your choice + make predictions
                     # Try loading in multiple models to give the user a choice
-                    predictor = joblib.load(open(os.path.join("models/finalized_model_lsvc.pkl"),"rb"))
+                    predictor = joblib.load(open(os.path.join("models/finalized_model_lsvc_op.pkl"),"rb"))
                     prediction = predictor.predict(l_texet)
 
                     # When model has successfully run, will print prediction
